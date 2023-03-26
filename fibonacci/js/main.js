@@ -30,15 +30,16 @@ while(valorNovo < 89){
 
 function verificaValorFibonacci(){
     let valorLido = parseInt(leitorFibonacci.value);
-    if(valorLido > 100){
+    if(valorLido >= 100){
         let isValorDeFibonacci = sequenciaFibonacci.includes(valorLido);
         if(isValorDeFibonacci){
             textoResposta.innerHTML = `O valor ${valorLido} faz parte da sequencia Fibonacci. <br>A sequencia é ${sequenciaFibonacci.join(" - ")}`;
         }else{
             textoResposta.innerHTML = `O valor ${valorLido} não faz parte da sequencia Fibonacci.;`
         }
-    }else textoResposta.innerHTML = `Insira um valor valido.`;
- 
+    }else{ 
+        textoResposta.innerHTML = `Insira um valor valido.`;
+    }
 }
 
 verificaFibonacci.addEventListener("click", () => verificaValorFibonacci())
