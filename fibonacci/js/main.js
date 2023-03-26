@@ -5,8 +5,8 @@ const textoResposta = document.querySelector("[id=textoResposta]");
 leitorFibonacci.min = 0;
 leitorFibonacci.max = 100;
 leitorFibonacci.addEventListener("input", () => {
-    let isNegativo = leitorFibonacci.value < 0;
-    let isMaiorQue100 = leitorFibonacci.value > 100;
+    const isNegativo = leitorFibonacci.value < 0;
+    const isMaiorQue100 = leitorFibonacci.value > 100;
     
     if(isNegativo){
         leitorFibonacci.value = Math.abs(leitorFibonacci.value);
@@ -30,18 +30,22 @@ while(valorNovo < 89){
 
 function verificaValorFibonacci(){
     let valorLido = parseInt(leitorFibonacci.value);
-    let isValorDeFibonacci = sequenciaFibonacci.includes(valorLido);
-    if(isValorDeFibonacci){
-        textoResposta.innerHTML = `O valor ${valorLido} faz parte da sequencia Fibonacci. <br>A sequencia é ${sequenciaFibonacci.join(" - ")}`
+    if(valorLido != NaN){
+        textoResposta.innerHTML = `Insira um valor valido.`
     }else{
-        textoResposta.innerHTML = `O valor ${valorLido} não faz parte da sequencia Fibonacci.`
-    }
+        let isValorDeFibonacci = sequenciaFibonacci.includes(valorLido);
+        if(isValorDeFibonacci){
+            textoResposta.innerHTML = `O valor ${valorLido} faz parte da sequencia Fibonacci. <br>A sequencia é ${sequenciaFibonacci.join(" - ")}`;
+        }else{
+            textoResposta.innerHTML = `O valor ${valorLido} não faz parte da sequencia Fibonacci.;`
+        }
+    }    
 }
 
-verificaFibonacci.addEventListener("click", () => {
-    verificaValorFibonacci()
+verificaFibonacci.addEventListener("click", () => verificaValorFibonacci())
+leitorFibonacci.addEventListener("keypress", (tecla) => {
+    if(tecla.key == "Enter") verificaValorFibonacci();
 })
-
 
 
 
