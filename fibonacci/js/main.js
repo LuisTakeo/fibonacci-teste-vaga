@@ -30,9 +30,12 @@ while(valorNovo < 89){
 
 function verificaValorFibonacci(){
     let valorLido = parseInt(leitorFibonacci.value);
-    if(valorLido >= 100){
+    console.log(valorLido)
+    console.log(typeof valo)
+    if(valorLido >= 0){
         let isValorDeFibonacci = sequenciaFibonacci.includes(valorLido);
         if(isValorDeFibonacci){
+            console.log(valorLido)
             textoResposta.innerHTML = `O valor ${valorLido} faz parte da sequencia Fibonacci. <br>A sequencia é ${sequenciaFibonacci.join(" - ")}`;
         }else{
             textoResposta.innerHTML = `O valor ${valorLido} não faz parte da sequencia Fibonacci.;`
